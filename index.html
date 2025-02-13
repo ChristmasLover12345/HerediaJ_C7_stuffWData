@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Src/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <title>Stuff with data</title>
 </head>
 <body class="bg-gray-700 flex flex-col items-center justify-center h-screen w-screen">
@@ -12,9 +13,71 @@
 
         <div class="h-[100px] w-full border-b-2 flex items-center justify-around ">
             
-            <button class="bg-blue-400 border-2 p-2 active:bg-green-400 active:border-white">Previous</button>
-            <button class="bg-blue-400 border-2 p-2 active:bg-green-400 active:border-white">Next</button>
-           
+            <button id="previousBtn" class="bg-blue-400 border-2 p-2 active:bg-green-400 active:border-white rounded-lg">Previous</button>
+
+
+            <!-- Dropdown -->
+            <button id="multiLevelDropdownButton" data-dropdown-toggle="multi-dropdown" class=" bg-blue-400 border-2 p-2 active:bg-green-400 rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center " type="button">Settings <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+                </button>
+                
+                <!-- Dropdown menu -->
+                <div id="multi-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="multiLevelDropdownButton">
+                      <li>
+                        <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Per page display<svg class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                  </svg></button>
+                          <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
+                              <li>
+                                <a id="pages10Btn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">10</a>
+                              </li>
+                              <li>
+                                <a id="pages20Btn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">20</a>
+                              </li>
+                              <li>
+                                <a id="pages30Btn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">30</a>
+                              </li>
+                              <li>
+                                <a id="pages40Btn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">40</a>
+                              </li>
+                              <li>
+                                <a id="pages50Btn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">50</a>
+                              </li>
+                            </ul>
+                        </div>
+                      </li>
+
+                      <li>
+                        <button id="doubleDropdownButton2" data-dropdown-toggle="doubleDropdown2" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sort by:<svg class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                  </svg></button>
+                          <div id="doubleDropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton2">
+                              <li>
+                                <a id="sortIDBtn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">ID</a>
+                              </li>
+                              <li>
+                                <a id="sortFirstNameBtn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">First Name</a>
+                              </li>
+                              <li>
+                                <a id="sortLastNameBtn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last Name</a>
+                              </li>
+                              <li>
+                                <a id="sortHeightBtn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Height</a>
+                              </li>
+                              <li>
+                                <a id="sortAgeBtn" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Age</a>
+                              </li>
+                            </ul>
+                        </div>
+                      </li>
+                </div>
+
+            <button  id="nextBtn" class="bg-blue-400 border-2 p-2 active:bg-green-400 active:border-white rounded-lg">Next</button>
+    
 
         </div>
 
@@ -27,7 +90,7 @@
     </div>
     
 
-
+<script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 <script src="./Scripts/app.js" type="module"></script>
 </body>
 </html>
