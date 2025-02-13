@@ -17,6 +17,10 @@ const sortLastNameBtn = document.getElementById("sortLastNameBtn");
 const sortHeightBtn = document.getElementById("sortHeightBtn");
 const sortAgeBtn = document.getElementById("sortAgeBtn");
 
+const currentPageDisplay = document.getElementById("currentPageDisplay");
+const totalPagesDisplay = document.getElementById("totalPagesDisplay");
+
+// Global variables
 let peopleArray = [];
 let pageSize = 10;
 let currentPage = 1;
@@ -28,6 +32,7 @@ const setStuff = async () => {
     const whatever = await GetJSON();
     peopleArray = whatever.People;
     totalPages = Math.ceil(peopleArray.length / pageSize);
+    totalPagesDisplay.innerHTML = totalPages;
     console.log(peopleArray);
     return peopleArray;
 }
@@ -36,7 +41,6 @@ const setStuff = async () => {
 // Get items for the current page
 async function getItems(page) 
 {
-
     const start = (page - 1) * pageSize;
     return peopleArray.slice(start, start + pageSize);
 }
@@ -72,22 +76,24 @@ async function displayCurrentPage()
     }
 }
 
-// Pagination functions
+// Next page function
 async function nextPage()
 {
     if (currentPage < totalPages) 
     {
         currentPage++;
+        currentPageDisplay.innerHTML = currentPage;
         await displayCurrentPage();
     }
 }
 
-// Pagination functions
+// Previous page function
 async function previousPage() 
 {
     if (currentPage > 1)
     {
         currentPage--;
+        currentPageDisplay.innerHTML = currentPage;
         await displayCurrentPage();
     }
 }
@@ -109,9 +115,12 @@ async function initialize() {
 }
 initialize();
 
+// Event listeners for page size buttons
 pages10Btn.addEventListener('click', () => {
     pageSize = 10;
+    // Rounds up to the nearest whole number
     totalPages = Math.ceil(peopleArray.length / pageSize);
+    totalPagesDisplay.innerHTML = totalPages;
     currentPage = 1;
     displayCurrentPage();
 })
@@ -119,6 +128,7 @@ pages10Btn.addEventListener('click', () => {
 pages20Btn.addEventListener('click', () => {
     pageSize = 20;
     totalPages = Math.ceil(peopleArray.length / pageSize);
+    totalPagesDisplay.innerHTML = totalPages;
     currentPage = 1;
     displayCurrentPage();
 })
@@ -126,6 +136,7 @@ pages20Btn.addEventListener('click', () => {
 pages30Btn.addEventListener('click', () => {
     pageSize = 30;
     totalPages = Math.ceil(peopleArray.length / pageSize);
+    totalPagesDisplay.innerHTML = totalPages;
     currentPage = 1;
     displayCurrentPage();
 })
@@ -133,6 +144,7 @@ pages30Btn.addEventListener('click', () => {
 pages40Btn.addEventListener('click', () => {    
     pageSize = 40;
     totalPages = Math.ceil(peopleArray.length / pageSize);
+    totalPagesDisplay.innerHTML = totalPages;
     currentPage = 1;
     displayCurrentPage();
 })
@@ -140,10 +152,12 @@ pages40Btn.addEventListener('click', () => {
 pages50Btn.addEventListener('click', () => {
     pageSize = 50;
     totalPages = Math.ceil(peopleArray.length / pageSize);
+    totalPagesDisplay.innerHTML = totalPages;
     currentPage = 1;
     displayCurrentPage();
 })
 
+// Event listeners for sort buttons
 sortIDBtn.addEventListener('click', () => {
     peopleArray.sort((a, b) => a.Id - b.Id);
     displayCurrentPage();
@@ -160,8 +174,9 @@ sortLastNameBtn.addEventListener('click', () => {
     displayCurrentPage();
 })
 
+// Since the height is a string, we need to parse it to a number
 sortHeightBtn.addEventListener('click', () => {
-    peopleArray.sort((a, b) => a.Height - b.Height);
+    peopleArray.sort((a, b) => parseFloat(a.Height) - parseFloat(b.Height));
     displayCurrentPage();
 })
 

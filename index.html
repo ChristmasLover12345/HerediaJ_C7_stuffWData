@@ -9,10 +9,12 @@
 </head>
 <body class="bg-gray-700 flex flex-col items-center justify-center h-screen w-screen">
 
+    <!-- This div holds all the content -->
     <div class="rounded-[5px] bg-gray-600 w-[1000px] h-[700px] border-2 overflow-hidden">
 
+        <!-- Nav -->
         <div class="h-[100px] w-full border-b-2 flex items-center justify-around ">
-            
+            <!-- Previous page button -->
             <button id="previousBtn" class="bg-blue-400 border-2 p-2 active:bg-green-400 active:border-white rounded-lg">Previous</button>
 
 
@@ -25,10 +27,12 @@
                 <!-- Dropdown menu -->
                 <div id="multi-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
                     <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="multiLevelDropdownButton">
+                        <!-- Dropdown button inside the dropdown -->
                       <li>
                         <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Per page display<svg class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                   </svg></button>
+                        <!-- dropdown menu inside the dropdown menu -->
                           <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
                               <li>
@@ -49,11 +53,12 @@
                             </ul>
                         </div>
                       </li>
-
+                      <!-- the other Dropdown button inside the dropdown -->
                       <li>
                         <button id="doubleDropdownButton2" data-dropdown-toggle="doubleDropdown2" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sort by:<svg class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                   </svg></button>
+                        <!--the other dropdown menu inside the dropdown menu -->
                           <div id="doubleDropdown2" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton2">
                               <li>
@@ -76,16 +81,22 @@
                       </li>
                 </div>
 
+                <!-- Next page button -->
             <button  id="nextBtn" class="bg-blue-400 border-2 p-2 active:bg-green-400 active:border-white rounded-lg">Next</button>
     
 
         </div>
-
-        <div id="contentDisplay" class="h-full w-full overflow-x-scroll flex flex-col items-center">
+        <!--Content display -->
+        <div id="contentDisplay" class="flex-grow w-full h-[600px] overflow-auto flex flex-col items-center">
             <!-- the data goes here -->
              
         </div>
 
+
+    </div>
+    <!-- Current page counter display -->
+    <div class="bg-gray-600 w-[1000px] h-[50px] flex items-center justify-center rounded-b-[5px] border-2 border-t-0">
+        <p class="text-white">Page <span id="currentPageDisplay">1</span> of <span id="totalPagesDisplay">1</span></p>
 
     </div>
     
