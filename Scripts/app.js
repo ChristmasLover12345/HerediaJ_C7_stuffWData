@@ -1,0 +1,1 @@
+const contentDisplay = document.getElementById("contentDisplay");

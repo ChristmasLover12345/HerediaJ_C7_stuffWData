@@ -1,3 +1,5 @@
+const contentDisplay = document.getElementById("contentDisplay");
+
 const poepleArray = [
     { id: 1, firstName: 'John', lastName: 'Doe', height: 175, age: 25 },
     { id: 2, firstName: 'Jane', lastName: 'Smith', height: 160, age: 30 },
@@ -51,4 +53,30 @@ const poepleArray = [
     { id: 50, firstName: 'Avery', lastName: 'Carter', height: 160, age: 60 }
 ];
 
+const pageSize = 10;
+let currentPage = 1;
 
+function getItems(page) 
+{
+    const start = (page - 1) * pageSize;
+    return poepleArray.slice(start, start + pageSize);
+}
+
+function displayCurrentPage()
+{
+    const items = getItems(currentPage);
+    for (let item of items) 
+    {
+        const div = document.createElement("div");
+        const name = document.createElement("p");
+        const height = document.createElement("p");
+        const age = document.createElement("p");
+        const id = document.createElement("p");
+
+        div.classList.add("w-[95%]", "rounded-[5px]", "flex", "justify-between", "items-center", "bg-[#f5f5f5]", "shadow-md");
+        
+
+
+        contentDisplay.appendChild(div);
+    }
+}
