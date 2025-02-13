@@ -109,3 +109,63 @@ async function initialize() {
 }
 initialize();
 
+pages10Btn.addEventListener('click', () => {
+    pageSize = 10;
+    totalPages = Math.ceil(peopleArray.length / pageSize);
+    currentPage = 1;
+    displayCurrentPage();
+})
+
+pages20Btn.addEventListener('click', () => {
+    pageSize = 20;
+    totalPages = Math.ceil(peopleArray.length / pageSize);
+    currentPage = 1;
+    displayCurrentPage();
+})
+
+pages30Btn.addEventListener('click', () => {
+    pageSize = 30;
+    totalPages = Math.ceil(peopleArray.length / pageSize);
+    currentPage = 1;
+    displayCurrentPage();
+})
+
+pages40Btn.addEventListener('click', () => {    
+    pageSize = 40;
+    totalPages = Math.ceil(peopleArray.length / pageSize);
+    currentPage = 1;
+    displayCurrentPage();
+})
+
+pages50Btn.addEventListener('click', () => {
+    pageSize = 50;
+    totalPages = Math.ceil(peopleArray.length / pageSize);
+    currentPage = 1;
+    displayCurrentPage();
+})
+
+sortIDBtn.addEventListener('click', () => {
+    peopleArray.sort((a, b) => a.Id - b.Id);
+    displayCurrentPage();
+})
+
+// LocalCompare is used to sort strings based on the users Langueage
+sortFirstNameBtn.addEventListener('click', () => {
+    peopleArray.sort((a, b) => a.FirstName.localeCompare(b.FirstName));
+    displayCurrentPage();
+})
+
+sortLastNameBtn.addEventListener('click', () => {
+    peopleArray.sort((a, b) => a.LastName.localeCompare(b.LastName));
+    displayCurrentPage();
+})
+
+sortHeightBtn.addEventListener('click', () => {
+    peopleArray.sort((a, b) => a.Height - b.Height);
+    displayCurrentPage();
+})
+
+sortAgeBtn.addEventListener('click', () => {
+    peopleArray.sort((a, b) => a.Age - b.Age);
+    displayCurrentPage();
+})
