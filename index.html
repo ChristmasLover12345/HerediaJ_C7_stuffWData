@@ -10,13 +10,17 @@
 
     <div class="rounded-[5px] bg-gray-600 w-[1000px] h-[700px] border-2">
 
-        <div class="h-[100px] w-full border-b-2">
-            <!-- the pagination and all that goes here -->
+        <div class="h-[100px] w-full border-b-2 flex items-center justify-around ">
+            
+            <button class="bg-blue-400 border-2 p-2 active:bg-green-400 active:border-white">Previous</button>
+            <button class="bg-blue-400 border-2 p-2 active:bg-green-400 active:border-white">Next</button>
+           
+
         </div>
 
-        <div id="contentDisplay" class="h-full w-full overflow-auto">
+        <div id="contentDisplay" class="h-full w-full overflow-auto flex flex-col items-center">
             <!-- the data goes here -->
-             </ul>
+             
         </div>
 
 
@@ -24,6 +28,6 @@
     
 
 
-
+<script src="./Scripts/app.js" type="module"></script>
 </body>
 </html>
